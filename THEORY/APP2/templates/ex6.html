@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Объявление переменных и использование их в шаблоне</h2>
+{% set variable = "test val" %} <!-- так можно определять перменные -->
+{% set num = 123 %}
+{% set arr = [1,2,3,4,5] %}
+<p>Определенная переменная variable: <span>{{ variable }}</span></p>
+<p>Определенная переменная num: <span>{{ num }}</span></p>
+<p>Определенная переменная arr: <span>{{ arr }}</span></p>
+
+
+<h2>Объект namespace -> контейнер глобальных переменных</h2>
+{% set ns_vars = namespace(name="Иван",age=32,city="Москва",) %}
+<p>Имя: {{ ns_vars.name }}</p>
+<p>Возраст: {{ ns_vars.age }}</p>
+<p>Город: {{ ns_vars.city }}</p>
+
+<h2>Изменение переменной в цикле</h2>
+{% set ns = namespace(count=0) %}
+
+{% for i in range(10) %}
+    {% set ns.count = ns.count + 1 %}
+{% endfor %}
+
+<p>{{ ns }}</p>
+{% endblock content %}

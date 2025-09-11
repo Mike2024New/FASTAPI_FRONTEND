@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+<h1>Условия if</h1>
+<h2>Показать параметр если True</h2>
+{% if parametr.0 %}
+    <p>{{ parametr.1 }}</p>
+{% endif %}
+
+<h2>Elif и else в условии</h2>
+{% if mode == 1 %}
+    <p>Выбран режим 1</p>
+{% elif mode == 2 %}
+    <p>Выбран режим 2</p>
+{% else %}
+    <p>Режим не определен</p>
+{% endif %}
+
+<h2>Тернарный оператор</h2>
+<!-- Условие можно также записать одной строкой (как тернарные операторы в python) -->
+<p>Пользователь: {{ "активен" if user.is_active else "неактивен" }}</p>
+
+{% endblock content %}

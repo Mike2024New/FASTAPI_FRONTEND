@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        font-family: monospace;
+        font-size: 18px;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        background-color: rgb(243, 238, 238);
+        padding: 30px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .flash_msg{
+        width: 500px;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .flash_critical{
+        background-color: #E53935;
+        border: #B71C1C 2px solid;
+    }
+
+    .flash_success{
+        background-color: #4CAF50;
+        border: #388E3C 2px solid;
+    }
+
+    .flash_closebtn{
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transform: rotate(45deg);
+    }
+
+    .flash_closebtn:hover{
+        transform: rotate(0deg);
+    }
+
+    form{
+        border-radius: 5px;
+        background-color:  #dce2dd;
+        padding: 20px 15px;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    form>input{
+        outline: none;
+        border: none;
+        border-radius: 3px;
+        padding: 5px;
+        margin-bottom: 10px;
+        height: 35px;
+    }
+    form>input:hover{
+        border: 1px solid #4CAF50;
+    }
+    form>input:focus{
+        border: 2px solid #4CAF50;
+        background-color: #eeeddf;
+    }
+
+    form>button{
+        /* margin-bottom: 10px; */
+        height: 35px;
+        border: none;
+        border-radius: 3px;
+        color:white;
+        background-color: #4CAF50;
+    }
+
+    form>button:hover{
+        background-color: #6abe6b;
+    }
+
+    form>h2{
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+</style>
+
+</head>
+<body>
+    <!-- Вывод клиенту flash сообщений -->
+    {% for msg in flashed_messages %}
+    
+    <div class="flash_msg flash_{{ msg.status }}">
+        <p>{{ msg.msg }}</p>
+        <p class="flash_closebtn" onclick="CloseFlashMessage(this)">+</p>
+    </div>
+
+    {% endfor %}
+
+    {% block content %}
+    
+    
+    
+    {% endblock content %}
+
+    <script>
+    // Скрипт для закрытия flash сообщения
+    function CloseFlashMessage(element){
+        let div = element.parentElement;
+        div.style.opacity = "0";
+        setTimeout(()=>{
+            div.style.display = "none";
+        }, 300);
+    }
+</script>
+</body>
+</html>

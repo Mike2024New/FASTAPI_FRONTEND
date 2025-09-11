@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 18px;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: rgb(243, 238, 238);
+            padding: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .flash_msg{
+            width: 60%;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .flash_critical{
+            background-color: #E53935;
+            border: #B71C1C 2px solid;
+        }
+
+        .flash_success{
+            background-color: #4CAF50;
+            border: #388E3C 2px solid;
+        }
+
+        .flash_closebtn{
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transform: rotate(45deg);
+        }
+
+        .flash_closebtn:hover{
+            transform: rotate(0deg);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="flash_msg flash_success">
+        <p>Пароли должны совпадать</p>
+        <p class="flash_closebtn" onclick="CloseFlashMessage(this)">+</p>
+    </div>
+
+    <div class="flash_msg flash_critical">
+        <p>Пароли должны совпадать</p>
+        <p class="flash_closebtn" onclick="CloseFlashMessage(this)">+</p>
+    </div>
+
+    <script>
+        function CloseFlashMessage(element){
+            let div = element.parentElement;
+            div.style.opacity = "0";
+            setTimeout(()=>{
+                div.style.display = "none";
+            }, 300);
+        }
+    </script>
+</body>
+</html>

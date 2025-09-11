@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="/create_account/" method="post">
+    <h2>Регистрация</h2>
+    <input type="text" name="username" placeholder="придумайте логин...">
+    <input type="password" name="password" placeholder="придумайте пароль...">
+    <input type="password" name="password_repeat" placeholder="придумайте пароль...">
+    <button type="submit">Отправить</button>
+</form>
+<a href="/login/">Уже есть аккаунт?</a>
+<a href="/">На главную</a>
+
+{% endblock content %}

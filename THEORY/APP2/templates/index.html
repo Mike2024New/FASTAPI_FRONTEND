@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Темы уроков</h2>
+<ol>
+    <li><a href="{{ request.url_for('ex1') }}">Обработка переменных</a></li>
+    <li><a href="{{ request.url_for('ex2') }}">Условия, тернарные операторы</a></li>
+    <li><a href="{{ request.url_for('ex3') }}">Тесты типов</a></li>
+    <li><a href="{{ request.url_for('ex4') }}">Передача функций прямо в шаблоны</a></li>
+    <li><a href="{{ request.url_for('ex5') }}">Определение пользовательских фильтров в шаблонах</a></li>
+    <li><a href="{{ request.url_for('ex6') }}">Определение переменных прямо в шаблоне</a></li>
+    <li><a href="{{ request.url_for('ex7') }}">Макросы (пользовательские функции) в шаблоне</a></li>
+    <li><a href="{{ request.url_for('ex8') }}">Макросы и сложная вставка текста call</a></li>
+    <li><a href="{{ request.url_for('ex9') }}">Include - вставка фрагментов кода из других шаблонов и Import - импортирование функций и переменных из других модулей</a></li>
+    <li><a href="{{ request.url_for('ex10') }}">With - изолированный контекст для создания локальной области видимости переменных.</a></li>
+</ol>
+{% endblock content %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+        *{
+            margin: 20px;
+            padding: 0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        .flash_messages{
+            width: 400px;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            padding: 5px;
+        }
+        .critical{
+            background-color: rgb(228, 184, 184);
+            border: rgb(95, 95, 190) 1px solid;
+        }
+        .success{
+            background-color: rgb(58, 124, 86);
+            border: rgb(95, 95, 190) 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- Обработчик с флеш сообщениями устанавливается в base.html и теперь он доступен на всех страницах -->
+    {% if messages.messages %}
+        <ul class="flash_messages">
+            {% for msg in messages.messages %}
+                <li class="{{ messages.status }}">{{ msg }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+    {% block content %}    
+    {% endblock content %}
+</body>
+</html>

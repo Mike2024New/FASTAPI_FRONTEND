@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+<!-- Контент вставляется с помощью include (включение) -->
+<h2>Вставка контента из ex9_fragment.html:</h2>
+{% include 'ex9_fragment.html' %}
+
+<!-- Для того, чтобы использовать функции и переменные, нужно применять import, он позволит использовать функции и переменные из других файлов -->
+<h2>Импорт макроса и переменной из файла ex9_macros.html:</h2>
+{% import 'ex9_macros.html' as macros %}
+<p>Импортированная переменная x: <span>{{ macros.x }}</span></p>
+{% set user = namespace(name = "Иван", family = "Иванов", age = 32) %}
+{{ macros.user_card(user) }}
+{% endblock content %}

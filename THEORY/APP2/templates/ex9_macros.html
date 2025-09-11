@@ -1,0 +1,14 @@
+{% set x = 100 %}
+
+{% macro user_card(user) %}
+
+<div class="card" style="width: 300px;background-color: rgb(207, 238, 201);padding: 15px;">
+    <h3>карточка пользователя</h3>
+    <ul>
+        <li>Имя: user.name</li>
+        <li>Фамилия: user.family</li>
+        <li>Возраст: user.age</li>
+    </ul>
+</div>
+
+{% endmacro %}

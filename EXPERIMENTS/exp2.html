@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: monospace;
+            font-size: 18px;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: rgb(243, 238, 238);
+            padding: 30px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            border-radius: 5px;
+            background-color:  #dce2dd;
+            padding: 20px 15px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form>input{
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            padding: 5px;
+            margin-bottom: 10px;
+            height: 35px;
+        }
+        form>input:hover{
+            border: 1px solid #4CAF50;
+        }
+        form>input:focus{
+            border: 2px solid #4CAF50;
+            background-color: #eeeddf;
+        }
+
+        form>button{
+            /* margin-bottom: 10px; */
+            height: 35px;
+            border: none;
+            border-radius: 3px;
+            color:white;
+            background-color: #4CAF50;
+        }
+
+        form>button:hover{
+            background-color: #6abe6b;
+        }
+
+        form>h2{
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post">
+        <h2>Регистрация</h2>
+        <input type="text" name="username" placeholder="придумайте логин...">
+        <input type="password" name="password" placeholder="придумайте пароль...">
+        <input type="password_repeat" name="password_repeat" placeholder="придумайте пароль...">
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

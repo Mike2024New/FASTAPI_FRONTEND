@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        h1{
+            font-size: 24px;
+        }
+        h1,
+        h2{
+            background-color: #ddbfbf;
+            margin: 10px;
+        }
+        p,ul,li{
+            margin: 20px;
+        }
+        p[class="notes"]{
+            border-left: orangered 2px solid;
+            color: orangered;
+            padding: 2px;
+        }
+        span{
+            padding: 2px;
+            background-color: rgb(160, 229, 163);
+        }
+    </style>
+</head>
+<body>
+    {% block content %}
+    {% endblock content %}
+    <a href="{{ request.url_for('home') }}">На главную</a>
+</body>
+</html>

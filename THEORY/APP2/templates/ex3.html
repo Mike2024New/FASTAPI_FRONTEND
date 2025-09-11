@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Определение типов (тесты типов)</h1>
+<h2>Проверка, что переменная была определена</h2>
+<p>{{ "переменная abc определена" if abc is defined else "переменная abc не определена" }}</p>
+<p class="notes">С помощью "is defined" можно проверить была ли определена переменная или нет</p>
+
+<h2>Разбор элементов в тернарных операторах</h2>
+<ul>
+    <li>Булевый тип: {{ "true" if arr.bool is boolean else "false" }}</li>
+    <li>Строка: {{ arr.string if arr.string is string else "не строка" }}</li>
+    <li>Число: {{ arr.num if arr.num is integer else "не число" }}</li>
+    <li>Список: {{ arr.list if arr.list is sequence else "не список" }}</li>
+    <li>Словарь: {{ arr.mapping if arr.mapping is mapping else "не словарь" }}</li>
+    <li>Функция: {{ arr.callable if arr.callable is callable else "не функция" }}</li>
+</ul>
+<p class="notes">Можно прямо в шаблоне с помощью is *type* определять тип переменной</p>
+
+<h2>Обход вложенных на 1 уровень коллекций</h2>
+<ul>
+    {% for key,val in arr2.items() %}
+        {% if val is sequence and not val is string %} <!-- Так как строка это итерируемый объект, нужно явно её выделять в условии -->
+            <ol>
+            {% for i in val %}
+                <li>Элемент списка: {{ i }}</li>
+            {% endfor %}
+            </ol>
+        {% else  %}
+            <li>Не список: {{ val }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock content %}

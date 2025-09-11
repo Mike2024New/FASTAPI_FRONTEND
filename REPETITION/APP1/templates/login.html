@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="/login/" method="post">
+    <h2>Авторизация</h2>
+    <input type="text" name="username" placeholder="введите логин...">
+    <input type="password" name="password" placeholder="введите пароль...">
+    <button type="submit">Отправить</button>
+</form>
+<a href="/create_account/">Нет аккаунта?</a>
+<a href="/">На главную</a>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Передача текста в макросы{% endblock title %}
+
+{% block content %}
+
+{% macro panel(title) %}
+<div class="panel" style="width: 300px; border: 1px solid red; margin: 15px;padding:10px;">
+    <h3>{{ title }}</h3>
+    {{ caller() }}
+</div>
+{% endmacro %}
+
+<h2>Использование caller</h2>
+<p>call позволяет вставлять сложный и большой фрагмент текста в функцию, реализация в этом примере помещает контент
+    из ul внутрь div блока панель определенного в функции panel
+</p>
+{% call panel("Заголовок панели") %}
+<ul>
+    <li>"Пункт 1"</li>
+    <li>"Пункт 2"</li>
+    <li>"Пункт 3"</li>
+</ul>
+{% endcall %}
+{% endblock content %}
