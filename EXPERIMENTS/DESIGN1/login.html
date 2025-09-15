@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style/styles.css">
+    <!-- URL для подключения иконок в окнах приложений -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Профиль</a>
+            <a href="#">О сайте</a>
+            <a href="#">Войти</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle">Светлая тема</button>
+    </header>
+    <main>
+        <div class="flash-msg flash-success">
+            <p>Аккаунт создан, войдите используя вашу учетную запись.</p>
+            <p class="flash-close-btn">x</p>
+        </div>
+
+        <div class="flash-msg flash-critical">
+            <p>Не правильные логин или пароль.</p>
+            <p class="flash-close-btn">x</p>
+        </div>
+
+        <h1>Вход в систему</h1>
+        <form action="#">
+            <input type="text" name="username" placeholder="введите логин...">
+            <input type="password" name="password" placeholder="придумайте пароль...">
+            <button type="submit">Войти</button>
+            <a href="#">Нет аккаунта?</a>
+        </form>
+
+
+    </main>
+    <footer></footer>
+    
+    <script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    // Функция применения темы
+    function applyTheme(theme) {
+        if(theme === 'dark'){
+        document.documentElement.classList.add('dark');
+        themeToggle.textContent = 'Светлая тема';
+        localStorage.setItem('theme', 'dark');
+        } else {
+        document.documentElement.classList.remove('dark');
+        themeToggle.textContent = 'Тёмная тема';
+        localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Инициализация темы при загрузке страницы
+    let savedTheme = localStorage.getItem('theme');
+    if (!savedTheme) {
+        // По умолчанию светлая тема
+        savedTheme = 'light';
+    }
+    applyTheme(savedTheme);
+
+    // Обработчик кнопки переключения темы
+    themeToggle.onclick = () => {
+        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    };
+    </script>
+
+</body>
+</html>

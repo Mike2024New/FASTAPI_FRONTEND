@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Профиль</a>
+            <a href="#">О сайте</a>
+            <a href="#">Войти</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle">Светлая тема</button>
+    </header>
+    <main>
+        <h1>Рассматриваемые темы</h1>
+        <section class="articles">
+            <article class="card">
+            <h2>Плюсы и минусы FastAPI</h2>
+            <p>FastAPI — современный фреймворк для Python, который позволяет быстро создавать производительные API с помощью стандартных аннотаций типов.</p>
+            <a href="/articles/fastapi-pros-cons" class="read-more">Читать далее</a>
+            </article>
+            <article class="card">
+            <h2>Как сделать переключение тем в веб-приложении</h2>
+            <p>В этом материале мы разберём, как быстро добавить поддержку светлой и тёмной темы, используя CSS-переменные и локальное хранение в браузере.</p>
+            <a href="/articles/theme-switch" class="read-more">Читать далее</a>
+            </article>
+            <article class="card">
+            <h2>Безопасность форм авторизации</h2>
+            <p>Узнайте, как правильно обрабатывать данные форм, хранить пароли и защититься от распространённых угроз на уровне приложения.</p>
+            <a href="/articles/auth-security" class="read-more">Читать далее</a>
+            </article>
+        
+        </section>
+    </main>
+    <footer></footer>
+    
+    <script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    // Функция применения темы
+    function applyTheme(theme) {
+        if(theme === 'dark'){
+        document.documentElement.classList.add('dark');
+        themeToggle.textContent = 'Светлая тема';
+        localStorage.setItem('theme', 'dark');
+        } else {
+        document.documentElement.classList.remove('dark');
+        themeToggle.textContent = 'Тёмная тема';
+        localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Инициализация темы при загрузке страницы
+    let savedTheme = localStorage.getItem('theme');
+    if (!savedTheme) {
+        // По умолчанию светлая тема
+        savedTheme = 'light';
+    }
+    applyTheme(savedTheme);
+
+    // Обработчик кнопки переключения темы
+    themeToggle.onclick = () => {
+        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    };
+    </script>
+
+</body>
+</html>

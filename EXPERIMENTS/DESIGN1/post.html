@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Профиль</a>
+            <a href="#">О сайте</a>
+            <a href="#">Войти</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle">Светлая тема</button>
+    </header>
+    <main>
+
+        <a href="/articles">&larr; Назад к списку статей</a>
+        <article>
+            <h1>Плюсы и минусы FastAPI</h1>
+            <div class="meta">Опубликовано: 15 сентября 2025 • Автор: Иван Иванов</div>
+            <div class="content">
+                <h2>Чтобы понять это</h2>
+            <p>FastAPI — современный фреймворк для Python, который позволяет быстро создавать производительные API, используя аннотации типов и асинхронные возможности Python.</p>
+            <p>К его плюсам относятся:</p>
+            <ul>
+                <li>Очень высокая скорость разработки и работы приложений.</li>
+                <li>Автоматическая генерация документации API.</li>
+                <li>Простота интеграции с базами данных и OAuth.</li>
+            </ul>
+            <p>Однако у него есть и свои минусы, такие как:</p>
+            <ul>
+                <li>Относительно новая технология, не такая популярная, как Django.</li>
+                <li>Может быть сложнее отлаживать асинхронный код новичкам.</li>
+            </ul>
+            <p>Подробнее можно прочитать в <a href="/articles/fastapi-pros-cons">этой статье</a>.</p>
+            </div>
+        </article>
+        <select>
+            <option value="">выберите значение</option>
+            <option value="">Значение 1</option>
+        </select>
+    </main>
+    <footer></footer>
+    
+    <script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    // Функция применения темы
+    function applyTheme(theme) {
+        if(theme === 'dark'){
+        document.documentElement.classList.add('dark');
+        themeToggle.textContent = 'Светлая тема';
+        localStorage.setItem('theme', 'dark');
+        } else {
+        document.documentElement.classList.remove('dark');
+        themeToggle.textContent = 'Тёмная тема';
+        localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Инициализация темы при загрузке страницы
+    let savedTheme = localStorage.getItem('theme');
+    if (!savedTheme) {
+        // По умолчанию светлая тема
+        savedTheme = 'light';
+    }
+    applyTheme(savedTheme);
+
+    // Обработчик кнопки переключения темы
+    themeToggle.onclick = () => {
+        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    };
+    </script>
+
+</body>
+</html>

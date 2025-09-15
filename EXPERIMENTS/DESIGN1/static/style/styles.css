@@ -1,0 +1,240 @@
+        :root{
+            --body_bg: #ffffff;
+            --header-bg: #f7f7f7;
+            --accent: #ff6f61;
+            --accent-hover: #bb5950;
+            --text: #0c0c0c;
+            --border: #ccc;
+            --link: #000000;
+            --dark-text: #222;
+            --input-bg: #f0eded;
+        }
+
+        :root.dark{
+            --body_bg: #121212;
+            --header-bg: #1f1f1f;
+            --accent: #ff6f61;
+            --accent-hover: #bb5950;
+            --text: #ddd;
+            --border: #434444;
+            --link: #acb1b8;
+            --dark-text: #222;
+            --input-bg: #222;
+        }
+
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: var(--body_bg);
+            width: 100%;
+            height: 100vh;
+        }
+        /* Стиллизация шапки */
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem; /* Отступы с боковых сторон */
+            background-color: var(--header-bg);
+            border-bottom: var(--border) 1px solid;
+            flex-wrap: wrap;
+        }
+        nav{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        nav>a{
+            color: var(--link);
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 1.2rem;
+        }
+
+        nav>a:hover{
+            color: var(--accent);
+        }
+
+        nav>a:last-child{
+            margin-right: 0;
+        }
+
+        header>button{
+            padding: 4px 10px;
+            font-weight: bold;
+            color: var(--accent);
+            border: var(--accent) 2px solid;
+            border-radius: 5px;
+            background-color: var(--header-bg);
+            outline: none;
+            cursor: pointer;
+        }
+        header>button:hover,
+        header>button:focus{
+            color:var(--header-bg);
+            background-color: var(--accent);
+        }
+
+        main{
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+            max-width: 720px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        h1{
+            margin-bottom: 2rem;
+        }
+        input[type="text"],
+        input[type="password"]{
+            color:var(--text);
+            background-color: var(--input-bg);
+            border: var(--border) 1px solid;
+            padding: 0.6rem;
+            border-radius: 5px;
+            outline: none;
+            margin-bottom: 15px;
+        }
+        input[type="text"]:hover,
+        input[type="password"]:hover{
+            border: var(--accent) 1px solid;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus{
+            border: var(--accent) 2px solid;
+            box-shadow: 0 0 6px var(--accent);
+        }
+
+        main button{
+            padding: 4px 6px;
+            font-weight: bold;
+            color: var(--dark-text);
+            border: none;
+            padding: 0.6rem;
+            border-radius: 5px;
+            background-color: var(--accent);
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        main button:hover,
+        main button:focus{
+            background-color: var(--accent-hover);
+        }
+        main a{
+            /* text-decoration: none; */
+            color: var(--link);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        main a:hover,
+        main a:focus{
+            color: var(--accent);
+        }
+        main h2{
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        main p{
+            margin-bottom: 10px;
+        }
+
+        main article[class="card"]{
+            border: 1px var(--border) solid;
+            background-color: var(--input-bg);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+
+        main ul{
+            margin-bottom: 15px;
+        }
+
+        main li{
+            margin-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        main .meta{
+            margin-bottom: 25px;
+            color: var(--link);
+        }
+
+        main .flash-msg p{
+            position: relative;
+            margin-bottom: 0;
+        }
+
+        main .flash-msg{
+            border-radius: 5px;
+            color:var(--text);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        main .flash-success{
+            border: 2px solid rgb(70, 136, 70);
+            background-color: rgba(111, 226, 155,0.3);
+            box-shadow: 0px 0px 3px 1px rgba(28, 199, 28, 0.6);
+        }
+
+        main .flash-critical{
+            border: 2px solid rgb(221, 93, 54);
+            background-color: rgba(241, 128, 147, 0.3);
+            box-shadow: 0px 0px 3px 1px rgba(221, 93, 54, 0.6);
+        }
+
+        main .flash-close-btn{
+            position: absolute;
+            bottom: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        main .flash-close-btn:hover{
+            font-weight: bold;
+        }
+
+        main .flash-success .flash-close-btn{
+            color:rgb(28, 199, 28);
+        }
+
+        main .flash-critical .flash-close-btn{
+            color: rgb(221, 93, 54);
+        }
+
+
+        select {
+        background-color: var(--input-bg);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 0.5rem 0.8rem;
+        font-size: 1rem;
+        cursor: pointer;
+        /* НЕ УБИРАЕМ appearance */
+        }
+
+        select:focus {
+        border-color: var(--accent);
+        outline: none;
+        box-shadow: 0 0 6px var(--accent);
+        }
